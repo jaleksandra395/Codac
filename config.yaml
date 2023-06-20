@@ -1,0 +1,7 @@
+drop_names: ["first_name", "last_name", "cc_n"]
+join_on: "id"
+rename_names: {"btc_a":"bitcoin_address", "cc_t":"credit_card_type", "id":"client_identifier"}
+output_path: "./client"
+logs_path: "./logs/logs.log"
+logs_formatter: "%(asctime)s :  %(filename)s %(levelname)s %(message)s LINE %(lineno)d."
+time_formatter: "%Y-%m-%d %H:%M:%S"
