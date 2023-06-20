@@ -21,7 +21,7 @@ class DataFrameCreator:
         self.file_path = file_path
         self.logger = logger
         self.df = spark_session.read.option("header", True).csv(file_path)
-        logger.info("The dataset has been read SUCCESSFULLY.")
+        logger.info(f"The dataset from {self.file_path.split('/')[-1]} has been read SUCCESSFULLY.")
         
 
     def filter_country_column(self, countries: List, logger: Logger) -> DataFrame:
@@ -67,14 +67,14 @@ class DataFrameCreator:
         :type col: str
         :param logger: A logger object
         :type logger: Logger
-        :return: A DataFrame with additional columns 
+        :return: A DataFrame after join
         :rtype: DataFrame
         """
         self.col = col
         self.df = self.df.join(other.df, col, "inner")
         self.logger = logger 
         logger.info("The datasets have been joined SUCCESSFULLY.")
-        return
+        return self.df
     
 
     def rename_column(self, renames_dict: Dict, logger: Logger) -> DataFrame:
