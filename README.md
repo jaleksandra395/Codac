@@ -45,10 +45,10 @@ Explanation:
 * _python3_ is a language used to run this script
 * _main.py_ is the main file of the application
 * _--file_one_ is the argument name for the first dataset file
-* _./datasets/dataset_one.csv_ is the path for the fist dataset file
+* _"./datasets/dataset_one.csv_" is the path for the fist dataset file
 * _--file_two_ is the argument name for the second dataset file
-* _./datasets/dataset_two.csv_ is the path for the second dataset file
+* _"./datasets/dataset_two.csv"_ is the path for the second dataset file
 * _--countries_ is the argument for the list containing country names by which the first dataset will be filtered
-* _Netherlands_ is the country by which the first dataset will be filtered
-* _'''United Kingdom'''_ is also the country by which the first dataset will be filtered, this value contains three double quotes because of the appearing space.
+* _"Netherlands"_ is the country by which the first dataset will be filtered
+* _"United Kingdom"_ is also the country by which the first dataset will be filtered, this value contains three double quotes because of the appearing space.
 
