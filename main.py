@@ -89,7 +89,7 @@ def main():
         clients_df.rename_column(config["rename_names"], logger)
         clients_df.save_to_file(config["output_path"], logger)
     else:
-        logger.info("The paths to files do not exist.")
+        logger.info("The files do not exist.")
 
     logger.info("The program has stopped running.")
 
