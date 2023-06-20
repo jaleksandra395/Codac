@@ -1,6 +1,6 @@
 # Codac Assignment
 ## Description 
-The aim of the assignment is to prepare data file for the company KommatiPara, which deals with bitcoin tradings. 
+The aim of the assignment is to prepare a data file for the company KommatiPara, which deals with bitcoin tradings. 
 Using 2 datasets, which contains client details and their financial details. The company needs to have one dataset including details from the two datasets without personal information and for specific countries.
 
 --------------------------------------------------------
