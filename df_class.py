@@ -1,10 +1,22 @@
 from functools import reduce
+from logging import Logger
 from pyspark.sql import DataFrame, SparkSession
 from typing import List, Dict
 
 
 class DataFrameCreator:
-    def __init__(self, file_path: str, spark_session: SparkSession, logger) -> None:
+    """The class represents a DataFrame
+    """
+    def __init__(self, file_path: str, spark_session: SparkSession, logger: Logger) -> None:
+        """The method reads a csv file and creates a DataFrame
+
+        :param file_path: A path which leads to a csv file
+        :type file_path: str
+        :param spark_session: A spark session object
+        :type spark_session: SparkSession
+        :param logger: A logger object
+        :type logger: Logger
+        """
         self.spark_session = spark_session
         self.file_path = file_path
         self.logger = logger
@@ -12,7 +24,15 @@ class DataFrameCreator:
         logger.info("The dataset has been read SUCCESSFULLY.")
         
 
-    def filter_country_column(self, countries: List, logger) -> DataFrame:
+    def filter_country_column(self, countries: List, logger: Logger) -> DataFrame:
+        """The method filters a country column in DataFrame by a list of countries
+        :param countries: A list of countries by which a DataFrame has to be filtered
+        :type countries: List
+        :param logger: A logger object
+        :type logger: Logger
+        :return: A filtered DataFrame
+        :rtype: DataFrame
+        """
         self.countries = countries
         self.df = self.df.filter(self.df.country.isin(countries))
         self.logger = logger
@@ -20,7 +40,16 @@ class DataFrameCreator:
         return self.df
 
 
-    def drop_columns(self, columns_to_drop: List, logger) -> DataFrame:
+    def drop_columns(self, columns_to_drop: List, logger: Logger) -> DataFrame:
+        """The method drops unnecessary columns which were listed in columns_to_drop list
+
+        :param columns_to_drop: A list of columns names which have to be dropped
+        :type columns_to_drop: List
+        :param logger: A logger object
+        :type logger: Logger
+        :return: A DataFrame without unneccesary columns
+        :rtype: DataFrame
+        """
         self.columns_to_drop = columns_to_drop 
         self.df = self.df.drop(*columns_to_drop)
         self.logger = logger
@@ -28,7 +57,19 @@ class DataFrameCreator:
         return self.df
     
     
-    def join_dfs(self, other, col: str, logger) -> DataFrame:
+    def join_dfs(self, other, col: str, logger: Logger) -> DataFrame:
+        """The method joins two DataFrames objects of the DataFrameCreator class 
+            based on the col parameter value.
+
+        :param other: Other object of the DataFrameCreator class
+        :type other: DataFrameCreator
+        :param col: A name of a column based on which join has to be done
+        :type col: str
+        :param logger: A logger object
+        :type logger: Logger
+        :return: A DataFrame with additional columns 
+        :rtype: DataFrame
+        """
         self.col = col
         self.df = self.df.join(other.df, col, "inner")
         self.logger = logger 
@@ -36,7 +77,16 @@ class DataFrameCreator:
         return
     
 
-    def rename_column(self, renames_dict: Dict, logger) -> DataFrame:
+    def rename_column(self, renames_dict: Dict, logger: Logger) -> DataFrame:
+        """The method renames columns based on the renames_dict dictionary 
+
+        :param renames_dict: A dictionary where keys are original column names and values are their substitutes
+        :type renames_dict: Dict
+        :param logger: A logger object
+        :type logger: Logger
+        :return: A DataFrame with renamed columns
+        :rtype: DataFrame
+        """
         self.df = reduce(lambda df, idx: df.withColumnRenamed(list(renames_dict.keys())[idx], 
                                                               list(renames_dict.values())[idx]), 
                                                               range(len(renames_dict)), self.df)
@@ -46,6 +96,15 @@ class DataFrameCreator:
     
     
     def save_to_file(self, output_path: str, logger) -> DataFrame:
+        """The method saves a DataFrame in specific path
+
+        :param output_path: A path for created DataFrame to be saved
+        :type output_path: str
+        :param logger: A logger object
+        :type logger: Logger
+        :return: A DataFrame
+        :rtype: DataFrame
+        """
         self.df.write.option("header", True).mode("overwrite").csv(output_path)
         self.logger = logger
         logger.info("The dataset has been saved SUCCESSFULLY.")

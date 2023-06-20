@@ -3,11 +3,13 @@ from df_class import DataFrameCreator
 import logging
 import logging.handlers as handlers
 import os
-from pyspark.sql import DataFrame, SparkSession
+from pyspark.sql import SparkSession
 import yaml
 
 
 def main():
+    """_summary_
+    """
     with open("config.yaml", "r") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     
@@ -35,6 +37,7 @@ def main():
     args = parser.parse_args()
     
     spark_session = SparkSession.builder.appName("assignment").getOrCreate()
+    
     if os.path.exists(args.file_one) and os.path.exists(args.file_two):
         clients_df = DataFrameCreator(args.file_one, spark_session, logger)
         clients_df.filter_country_column(args.countries, logger)
