@@ -36,16 +36,16 @@ def main():
     
     spark_session = SparkSession.builder.appName("assignment").getOrCreate()
     if os.path.exists(args.file_one) and os.path.exists(args.file_two):
-        df1 = DataFrameCreator(args.file_one, spark_session, logger)
-        df1.filter_country_column(args.countries, logger)
-        df1.drop_columns(config["drop_names"], logger)
+        clients_df = DataFrameCreator(args.file_one, spark_session, logger)
+        clients_df.filter_country_column(args.countries, logger)
+        clients_df.drop_columns(config["drop_names"], logger)
 
-        df2 = DataFrameCreator(args.file_two, spark_session, logger)
-        df2.drop_columns(config["drop_names"], logger)
+        cards_df = DataFrameCreator(args.file_two, spark_session, logger)
+        cards_df.drop_columns(config["drop_names"], logger)
 
-        df1.join_dfs(df2, config["join_on"], logger)
-        df1.rename_column(config["rename_names"], logger)
-        df1.save_to_file(config["output_path"], logger)
+        clients_df.join_dfs(cards_df, config["join_on"], logger)
+        clients_df.rename_column(config["rename_names"], logger)
+        clients_df.save_to_file(config["output_path"], logger)
     else:
         logger.info("The paths to files do not exist.")
 
