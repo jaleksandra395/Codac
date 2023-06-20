@@ -1,5 +1,4 @@
 from functools import reduce
-import os
 from pyspark.sql import DataFrame, SparkSession
 from typing import List, Dict
 
@@ -9,13 +8,9 @@ class DataFrameCreator:
         self.spark_session = spark_session
         self.file_path = file_path
         self.logger = logger
-        if os.path.exists(file_path):
-            self.df = spark_session.read.option("header", True).csv(file_path)
-            logger.info("The dataset has been read SUCCESSFULLY.")
-        else:
-            self.df = None
-            logger.info("The path does not exist.")
- 
+        self.df = spark_session.read.option("header", True).csv(file_path)
+        logger.info("The dataset has been read SUCCESSFULLY.")
+        
 
     def filter_country_column(self, countries: List, logger) -> DataFrame:
         self.countries = countries

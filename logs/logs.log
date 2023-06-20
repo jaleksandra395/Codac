@@ -13,3 +13,14 @@
 2023-06-20 10:11:03 :  df_class.py INFO The columns have been renamed SUCCESSFULLY. LINE 49.
 2023-06-20 10:11:05 :  df_class.py INFO The dataset has been saved SUCCESSFULLY. LINE 56.
 2023-06-20 10:11:05 :  main.py INFO The program has finished SUCCESSFULLY. LINE 49.
+2023-06-20 10:54:11 :  df_class.py INFO The dataset has been read SUCCESSFULLY. LINE 12.
+2023-06-20 10:54:11 :  df_class.py INFO The dataset has been filtered by countries SUCCESSFULLY. LINE 19.
+2023-06-20 10:54:11 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 27.
+2023-06-20 10:54:12 :  df_class.py INFO The dataset has been read SUCCESSFULLY. LINE 12.
+2023-06-20 10:54:12 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 27.
+2023-06-20 10:54:12 :  df_class.py INFO The datasets have been joined SUCCESSFULLY. LINE 35.
+2023-06-20 10:54:12 :  df_class.py INFO The columns have been renamed SUCCESSFULLY. LINE 44.
+2023-06-20 10:54:18 :  df_class.py INFO The dataset has been saved SUCCESSFULLY. LINE 51.
+2023-06-20 10:54:18 :  main.py INFO The program has finished SUCCESSFULLY. LINE 53.
+2023-06-20 10:54:38 :  main.py INFO The paths do not exist. LINE 50.
+2023-06-20 10:54:38 :  main.py INFO The program has finished SUCCESSFULLY. LINE 53.

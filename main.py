@@ -2,13 +2,12 @@ import argparse
 from df_class import DataFrameCreator
 import logging
 import logging.handlers as handlers
+import os
 from pyspark.sql import DataFrame, SparkSession
 import yaml
 
 
 def main():
-    # comment
-
     with open("config.yaml", "r") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     
@@ -36,22 +35,24 @@ def main():
     args = parser.parse_args()
     
     spark_session = SparkSession.builder.appName("assignment").getOrCreate()
-    df1 = DataFrameCreator(args.file_one, spark_session, logger)
-    df1.filter_country_column(args.countries, logger)
-    df1.drop_columns(config["drop_names"], logger)
+    if os.path.exists(args.file_one) and os.path.exists(args.file_two):
+        df1 = DataFrameCreator(args.file_one, spark_session, logger)
+        df1.filter_country_column(args.countries, logger)
+        df1.drop_columns(config["drop_names"], logger)
 
-    df2 = DataFrameCreator(args.file_two, spark_session, logger)
-    df2.drop_columns(config["drop_names"], logger)
+        df2 = DataFrameCreator(args.file_two, spark_session, logger)
+        df2.drop_columns(config["drop_names"], logger)
 
-    df1.join_dfs(df2, config["join_on"], logger)
-    df1.rename_column(config["rename_names"], logger)
-    df1.save_to_file(config["output_path"], logger)
+        df1.join_dfs(df2, config["join_on"], logger)
+        df1.rename_column(config["rename_names"], logger)
+        df1.save_to_file(config["output_path"], logger)
+    else:
+        logger.info("The paths to files do not exist.")
+
 
     logger.info("The program has finished SUCCESSFULLY.")
 
 
-
 if __name__ == '__main__':
     main()
-    
-    
+     
