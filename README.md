@@ -7,12 +7,12 @@ Using 2 datasets, which contains client details and their financial details. The
 ## Input 
 For the assignment a user should upload two .csv files.
 
-The first file with client details, consisting of the following columns:
+The first file with client details, consists of the following columns:
 
 | id | first_name | last_name | email | country |
 |----|------------|-----------|-------|---------|
 
-The second file with financial details consisting of the followig columns:
+The second file with financial details consists of the followig columns:
 
 | id | btc_a | cc_t | cc_n | 
 |----|-------|------|------|

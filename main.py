@@ -66,7 +66,7 @@ def check_paths(file_one, file_two):
 
 
 def main():
-    """_summary_
+    """The main function of the application. 
     """
     args = get_args()
 
