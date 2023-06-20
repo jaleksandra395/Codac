@@ -1,3 +1,5 @@
 *.log
 __pycache__/
 logs/
+client/
+!client\part-00000-38c3ac77-37cb-44c3-b77b-ceda918f17c8-c000.csv
