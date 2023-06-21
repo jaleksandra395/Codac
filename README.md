@@ -39,7 +39,7 @@ The output file contains only id, email, btc_a, cc_t and cc_n columns which are 
 ## Example of use
 After instalation all of neccessary packages, run the following comand:
 ```
-python3 main.py --file_one "./datasets/dataset_one.csv" --file_two "./datasets/dataset_two.csv" --"countries Netherlands" "United Kingdom"
+python3 main.py --file_one "./datasets/dataset_one.csv" --file_two "./datasets/dataset_two.csv" --countries "Netherlands" "United Kingdom"
 ```
 Explanation:
 * _python3_ is a language used to run this script
