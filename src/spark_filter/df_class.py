@@ -99,7 +99,7 @@ class DataFrameCreator:
         return self.df
     
     
-    def save_to_file(self, output_path: str, logger) -> DataFrame:
+    def save_to_file(self, output_path: str, logger: Logger) -> DataFrame:
         """The method saves a DataFrame in specific path
 
         :param output_path: A path for created DataFrame to be saved
