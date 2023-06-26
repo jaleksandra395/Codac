@@ -136,6 +136,7 @@ def test_drop_three_columns_in_df(spark_session: SparkSession, spark_logger: Log
     test_df1.join_dfs(test_df2, "col1", spark_logger)
     chispa.assert_df_equality(test_df1.df, expected_join_df, ignore_row_order=True)'''
 
+
 # TEST RENAME
 def test_no_rename_column_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_no_rename_df: DataFrame) -> None:
     test_df = DataFrameCreator(None, spark_session, spark_logger, fixture_source_df)
@@ -143,13 +144,13 @@ def test_no_rename_column_in_df(spark_session: SparkSession, spark_logger: Logge
     chispa.assert_df_equality(test_df.df, expected_no_rename_df, ignore_row_order=True)
 
 
-def test_no_rename_column_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_one_column_renamed_df: DataFrame) -> None:
+def test_one_column_renamed_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_one_column_renamed_df: DataFrame) -> None:
     test_df = DataFrameCreator(None, spark_session, spark_logger, fixture_source_df)
     test_df.rename_column({"col2":"col2_2"}, spark_logger)
     chispa.assert_df_equality(test_df.df, expected_one_column_renamed_df, ignore_row_order=True)
 
 
-def test_no_rename_column_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_all_columns_renamed_df: DataFrame) -> None:
+def test_all_columns_renamed_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_all_columns_renamed_df: DataFrame) -> None:
     test_df = DataFrameCreator(None, spark_session, spark_logger, fixture_source_df)
     test_df.rename_column({"col1":"col1_1", "col2":"col2_2", "col3":"col3_3", "col4":"col4_4", "col5":"col5_5", "col6":"col6_6"}, spark_logger)
     chispa.assert_df_equality(test_df.df, expected_all_columns_renamed_df, ignore_row_order=True)
