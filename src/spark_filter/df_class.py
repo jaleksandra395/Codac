@@ -7,7 +7,7 @@ from typing import List, Dict
 class DataFrameCreator:
     """The class represents a DataFrame
     """
-    def __init__(self, file_path: str, spark_session: SparkSession, logger: Logger) -> None:
+    def __init__(self, file_path: str, spark_session: SparkSession, logger: Logger, df: DataFrame = None) -> None:
         """The method reads a csv file and creates a DataFrame
 
         :param file_path: A path which leads to a csv file
@@ -17,11 +17,15 @@ class DataFrameCreator:
         :param logger: A logger object
         :type logger: Logger
         """
-        self.spark_session = spark_session
-        self.file_path = file_path
-        self.logger = logger
-        self.df = spark_session.read.option("header", True).csv(file_path)
-        logger.info(f"The dataset from {self.file_path.split('/')[-1]} has been read SUCCESSFULLY.")
+        if df:
+            self.df = df 
+            logger.info("Because any path has been provided a DataFrame object from the provided DataFrame has been created.")
+        else:
+            self.spark_session = spark_session
+            self.file_path = file_path
+            self.logger = logger
+            self.df = spark_session.read.option("header", True).csv(file_path)
+            logger.info(f"The dataset from {self.file_path.split('/')[-1]} has been read SUCCESSFULLY.")
         
 
     def filter_country_column(self, countries: List, logger: Logger) -> DataFrame:
