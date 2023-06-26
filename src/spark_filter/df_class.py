@@ -28,7 +28,7 @@ class DataFrameCreator:
             logger.info(f"The dataset from {self.file_path.split('/')[-1]} has been read SUCCESSFULLY.")
         
 
-    def filter_country_column(self, filter_values: List, logger: Logger, column: str) -> DataFrame:
+    def filter_column(self, filter_values: List, logger: Logger, column: str) -> DataFrame:
         """The method filters a country column in DataFrame by a list of countries
         :param filter_values: A list of values by which a DataFrame has to be filtered
         :type filter_values: List
