@@ -39,7 +39,7 @@ jobs:
         export PYTHONPATH=$(echo `pwd`)
         pytest
         
-    - name: Build wheel file
+    - name: Create package
       run: |
         pip install build
         python3 -m build
