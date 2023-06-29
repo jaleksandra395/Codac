@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/Codac.egg-info/PKG-INFO
+src/Codac.egg-info/SOURCES.txt
+src/Codac.egg-info/dependency_links.txt
+src/Codac.egg-info/entry_points.txt
+src/Codac.egg-info/top_level.txt
+src/spark_filter/__init__.py
+src/spark_filter/df_class.py
+src/spark_filter/functions.py
+src/spark_filter/main.py

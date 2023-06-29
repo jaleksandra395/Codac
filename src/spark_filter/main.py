@@ -18,7 +18,7 @@ def main():
     
     if check_files(args.file_one, args.file_two):
         clients_df = DataFrameCreator(args.file_one, spark_session, logger)
-        clients_df.filter_column(args.filter_values, logger, args.column_name)
+        clients_df.filter_column(args.countries, logger, args.column_name)
         clients_df.drop_columns(config["drop_names"], logger)
 
         cards_df = DataFrameCreator(args.file_two, spark_session, logger)
@@ -30,7 +30,7 @@ def main():
     else:
         logger.info("The files do not exist.")
 
-    logger.info("The program has stopped running.")
+    logger.info("The program has finished running.")
 
 
 if __name__ == '__main__':

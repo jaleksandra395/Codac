@@ -26,10 +26,10 @@ class DataFrameCreator:
             self.logger = logger
             self.df = spark_session.read.option("header", True).csv(file_path)
             logger.info(f"The dataset from {self.file_path.split('/')[-1]} has been read SUCCESSFULLY.")
-        
+
 
     def filter_column(self, filter_values: List, logger: Logger, column: str) -> DataFrame:
-        """The method filters a country column in DataFrame by a list of countries
+        """The method filters a column in DataFrame by a list of values
         :param filter_values: A list of values by which a DataFrame has to be filtered
         :type filter_values: List
         :param logger: A logger object
@@ -41,9 +41,12 @@ class DataFrameCreator:
         """
         self.column = column
         self.filter_values = filter_values
-        self.df = self.df.filter(self.df[column].isin(filter_values))
-        self.logger = logger
-        logger.info(f"The dataset has been filtered by countries SUCCESSFULLY.")
+        if column in self.df.columns:
+            self.df = self.df.filter(self.df[column].isin(filter_values))
+            self.logger = logger
+            logger.info(f"The dataset has been filtered by {column} SUCCESSFULLY.")
+        else:
+            logger.info(f"{column} does not exist in DataFrame")
         return self.df
 
 
@@ -85,7 +88,7 @@ class DataFrameCreator:
     
 
     def rename_column(self, renames_dict: Dict, logger: Logger) -> DataFrame:
-        """The method renames columns based on the renames_dict dictionary 
+        """The method renames columns based on the renames_dict dictionary.  
 
         :param renames_dict: A dictionary where keys are original column names and values are their substitutes
         :type renames_dict: Dict
@@ -94,6 +97,10 @@ class DataFrameCreator:
         :return: A DataFrame with renamed columns
         :rtype: DataFrame
         """
+        for col_to_rename in list(renames_dict.keys()):
+            if col_to_rename not in self.df.columns:
+                renames_dict.pop(col_to_rename)
+
         self.df = reduce(lambda df, idx: df.withColumnRenamed(list(renames_dict.keys())[idx], 
                                                               list(renames_dict.values())[idx]), 
                                                               range(len(renames_dict)), self.df)

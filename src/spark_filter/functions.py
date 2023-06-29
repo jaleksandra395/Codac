@@ -2,24 +2,25 @@ import argparse
 import logging
 import logging.handlers as handlers
 import os
+from typing import Tuple
 
 
-def get_args():
+def get_args() -> argparse.Namespace:
     """The function allows to get argparse arguments
 
     :return: Argparse arguments
     :rtype: argparse
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('--file_one', type=str, required=True)
-    parser.add_argument('--file_two', type=str, required=True)
-    parser.add_argument('--column_name', type=str, required=False, default='country')
-    parser.add_argument('--filter_values', nargs='*',  required=True)
+    parser.add_argument('--file_one', type=str, required=True, help='Path to file one')
+    parser.add_argument('--file_two', type=str, required=True, help='Path to file two')
+    parser.add_argument('--column_name', type=str, required=False, default='country', help='Column name by which the dataset should be filtered, by default country')
+    parser.add_argument('--countries', nargs='*',  required=False, default=['Netherlands', 'United Kingdom'], help='Values to filter')
     args = parser.parse_args()
     return args
 
 
-def get_logger(config):
+def get_logger(config) -> logging.Logger:
     """Create a logging object with rotating policy
 
     :param config: A yaml file allowing to store some parameters
@@ -45,7 +46,7 @@ def get_logger(config):
     return logger
 
 
-def check_files(file_one: str, file_two: str):
+def check_files(file_one: str, file_two: str) -> bool:
     """The function checks if paths to the file exist and if the file are in .csv format
 
     :param file_one: A path to the dataset_one file
