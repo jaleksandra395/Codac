@@ -39,16 +39,16 @@ The output file contains only id, email, btc_a, cc_t and cc_n columns which are 
 ## Example of use
 After instalation all of neccessary packages, run the following comand:
 ```
-python3 src/spark_filter/main.py --file_one "./datasets/dataset_one.csv" --file_two "./datasets/dataset_two.csv" --countries "Netherlands" "United Kingdom"
+Codac --file_one "./datasets/dataset_one.csv" --file_two "./datasets/dataset_two.csv" --countries "Netherlands" "United Kingdom"
 ```
 Explanation:
-* _python3_ is a language used to run this script
-* _main.py_ is the main file of the application
 * _--file_one_ is the argument name for the first dataset file
 * _"./datasets/dataset_one.csv_" is the path for the fist dataset file
 * _--file_two_ is the argument name for the second dataset file
 * _"./datasets/dataset_two.csv"_ is the path for the second dataset file
 * _--countries_ is the argument for the list containing country names by which the first dataset will be filtered
 * _"Netherlands"_ is the country by which the first dataset will be filtered
-* _"United Kingdom"_ is also the country by which the first dataset will be filtered, this value contains three double quotes because of the appearing space.
+* _"United Kingdom"_ is also the country by which the first dataset will be filtered, this value contains three double quotes because of the appearing space. These arguments are default, so user do not need to provide them.
+
+
 
