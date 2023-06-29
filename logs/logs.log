@@ -1,18 +1,19 @@
-2023-06-29 07:55:22 :  df_class.py INFO The dataset from dataset_one.csv has been read SUCCESSFULLY. LINE 28.
-2023-06-29 07:55:22 :  df_class.py INFO The dataset has been filtered by country SUCCESSFULLY. LINE 47.
-2023-06-29 07:55:22 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 66.
-2023-06-29 07:55:22 :  df_class.py INFO The dataset from dataset_two.csv has been read SUCCESSFULLY. LINE 28.
-2023-06-29 07:55:23 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 66.
-2023-06-29 07:55:23 :  df_class.py INFO The datasets have been joined SUCCESSFULLY. LINE 86.
-2023-06-29 07:55:23 :  df_class.py INFO The columns have been renamed SUCCESSFULLY. LINE 108.
-2023-06-29 07:55:26 :  df_class.py INFO The dataset has been saved SUCCESSFULLY. LINE 124.
-2023-06-29 07:55:26 :  main.py INFO The program has finished running. LINE 33.
-2023-06-29 08:09:37 :  df_class.py INFO The dataset from dataset_one.csv has been read SUCCESSFULLY. LINE 28.
-2023-06-29 08:09:38 :  df_class.py INFO The dataset has been filtered by country SUCCESSFULLY. LINE 47.
-2023-06-29 08:09:38 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 66.
-2023-06-29 08:09:38 :  df_class.py INFO The dataset from dataset_two.csv has been read SUCCESSFULLY. LINE 28.
-2023-06-29 08:09:38 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 66.
-2023-06-29 08:09:38 :  df_class.py INFO The datasets have been joined SUCCESSFULLY. LINE 86.
-2023-06-29 08:09:38 :  df_class.py INFO The columns have been renamed SUCCESSFULLY. LINE 108.
-2023-06-29 08:09:41 :  df_class.py INFO The dataset has been saved SUCCESSFULLY. LINE 124.
-2023-06-29 08:09:41 :  main.py INFO The program has finished running. LINE 33.
+2023-06-29 09:43:21 :  main.py INFO The program has finished running. LINE 33.
+2023-06-29 10:48:16 :  df_class.py INFO The dataset from dataset_one.csv has been read SUCCESSFULLY. LINE 28.
+2023-06-29 10:48:16 :  df_class.py INFO The dataset has been filtered by country SUCCESSFULLY. LINE 47.
+2023-06-29 10:48:16 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 66.
+2023-06-29 10:48:17 :  df_class.py INFO The dataset from dataset_two.csv has been read SUCCESSFULLY. LINE 28.
+2023-06-29 10:48:17 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 66.
+2023-06-29 10:48:17 :  df_class.py INFO The datasets have been joined SUCCESSFULLY. LINE 86.
+2023-06-29 10:48:17 :  df_class.py INFO The columns have been renamed SUCCESSFULLY. LINE 108.
+2023-06-29 10:48:22 :  df_class.py INFO The dataset has been saved SUCCESSFULLY. LINE 124.
+2023-06-29 10:48:23 :  main.py CRITICAL The program has finished running. LINE 33.
+2023-06-29 11:11:42 :  df_class.py INFO The dataset from dataset_one.csv has been read SUCCESSFULLY. LINE 29.
+2023-06-29 11:11:42 :  df_class.py INFO The dataset has been filtered by country SUCCESSFULLY. LINE 48.
+2023-06-29 11:11:42 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 67.
+2023-06-29 11:11:43 :  df_class.py INFO The dataset from dataset_two.csv has been read SUCCESSFULLY. LINE 29.
+2023-06-29 11:11:43 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 67.
+2023-06-29 11:11:43 :  df_class.py INFO The datasets have been joined SUCCESSFULLY. LINE 87.
+2023-06-29 11:11:43 :  df_class.py INFO The columns have been renamed SUCCESSFULLY. LINE 109.
+2023-06-29 11:11:49 :  df_class.py INFO The dataset has been saved SUCCESSFULLY. LINE 125.
+2023-06-29 11:11:49 :  main.py INFO The program has finished running. LINE 33.

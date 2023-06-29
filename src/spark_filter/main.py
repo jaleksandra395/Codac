@@ -28,11 +28,10 @@ def main():
         clients_df.rename_column(config["rename_names"], logger)
         clients_df.save_to_file(config["output_path"], logger)
     else:
-        logger.info("The files do not exist.")
-
+        logger.critical("The files do not exist.")
+    spark_session.stop()
     logger.info("The program has finished running.")
 
 
 if __name__ == '__main__':
     main()
-     

@@ -10,3 +10,4 @@ def test_get_arguments_from_argparse(mocker):
     args_result = args.file_one, args.file_two, args.countries
     expected_result = ('one_data.csv', 'two_data.csv', ['France', 'United States'])
     assert args_result == expected_result
+    

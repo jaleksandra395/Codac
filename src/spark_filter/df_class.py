@@ -7,15 +7,19 @@ from typing import List, Dict
 class DataFrameCreator:
     """The class represents a DataFrame
     """
-    def __init__(self, file_path: str, spark_session: SparkSession, logger: Logger, df: DataFrame = None) -> None:
-        """The method reads a csv file and creates a DataFrame
+    def __init__(self, file_path: str, spark_session: SparkSession, logger: Logger, file_format: str = "csv", df: DataFrame = None) -> None:
+        """The method reads a file and creates a DataFrame
 
-        :param file_path: A path which leads to a csv file
+        :param file_path: A path which leads to a file
         :type file_path: str
         :param spark_session: A spark session object
         :type spark_session: SparkSession
         :param logger: A logger object
         :type logger: Logger
+        :param file_format: Format of a file, default csv
+        :type file_format: str
+        :param df: A DataFrame to create a object, default None
+        :type df: DataFrame
         """
         if df:
             self.df = df 
@@ -23,8 +27,9 @@ class DataFrameCreator:
         else:
             self.spark_session = spark_session
             self.file_path = file_path
+            self.file_format = file_format
             self.logger = logger
-            self.df = spark_session.read.option("header", True).csv(file_path)
+            self.df = spark_session.read.format(file_format).option("header", True).load(file_path)
             logger.info(f"The dataset from {self.file_path.split('/')[-1]} has been read SUCCESSFULLY.")
 
 

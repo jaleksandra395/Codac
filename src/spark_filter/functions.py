@@ -57,7 +57,6 @@ def check_files(file_one: str, file_two: str) -> bool:
     :rtype: boolean
     """
     if os.path.exists(file_one) and os.path.exists(file_two):
-        if file_one.endswith('csv') and file_two.endswith('csv'):
-            return True
+        return True
     else:
         return False

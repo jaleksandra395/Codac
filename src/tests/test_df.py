@@ -79,37 +79,37 @@ def expected_all_columns_renamed_df(spark_session: SparkSession) -> DataFrame:
 
 # TEST FILTER
 def test_filter_one_column_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_filtered_col4: DataFrame) -> None:
-    test_df = DataFrameCreator(None, spark_session, spark_logger, fixture_source_df)
+    test_df = DataFrameCreator(None, spark_session, spark_logger, None, fixture_source_df)
     test_df.filter_column(["col4val2"], spark_logger, "col4")
     chispa.assert_df_equality(test_df.df, expected_filtered_col4, ignore_row_order=True)
 
 
 def test_filter_column_not_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_filter_column_not_in_df: DataFrame) -> None:
-    test_df = DataFrameCreator(None, spark_session, spark_logger, fixture_source_df)
+    test_df = DataFrameCreator(None, spark_session, spark_logger, None, fixture_source_df)
     test_df.filter_column(["col4val2"], spark_logger, "col7")
     chispa.assert_df_equality(test_df.df, expected_filter_column_not_in_df, ignore_row_order=True)
 
 
 # TEST RENAME
 def test_rename_no_column_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_rename_no_column_in_df: DataFrame) -> None:
-    test_df = DataFrameCreator(None, spark_session, spark_logger, fixture_source_df)
+    test_df = DataFrameCreator(None, spark_session, spark_logger, None, fixture_source_df)
     test_df.rename_column({}, spark_logger)
     chispa.assert_df_equality(test_df.df, expected_rename_no_column_in_df, ignore_row_order=True)
 
 
 def test_rename_column_not_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_rename_column_not_in_df: DataFrame) -> None:
-    test_df = DataFrameCreator(None, spark_session, spark_logger, fixture_source_df)
+    test_df = DataFrameCreator(None, spark_session, spark_logger, None, fixture_source_df)
     test_df.rename_column({"col7":"col8"}, spark_logger)
     chispa.assert_df_equality(test_df.df, expected_rename_column_not_in_df, ignore_row_order=True)
 
 
 def test_rename_one_column_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_one_column_renamed_df: DataFrame) -> None:
-    test_df = DataFrameCreator(None, spark_session, spark_logger, fixture_source_df)
+    test_df = DataFrameCreator(None, spark_session, spark_logger, None, fixture_source_df)
     test_df.rename_column({"col2":"col2_2"}, spark_logger)
     chispa.assert_df_equality(test_df.df, expected_one_column_renamed_df, ignore_row_order=True)
 
 
 def test_rename_all_columns_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_all_columns_renamed_df: DataFrame) -> None:
-    test_df = DataFrameCreator(None, spark_session, spark_logger, fixture_source_df)
+    test_df = DataFrameCreator(None, spark_session, spark_logger, None, fixture_source_df)
     test_df.rename_column({"col1":"col1_1", "col2":"col2_2", "col3":"col3_3", "col4":"col4_4", "col5":"col5_5", "col6":"col6_6"}, spark_logger)
     chispa.assert_df_equality(test_df.df, expected_all_columns_renamed_df, ignore_row_order=True)
