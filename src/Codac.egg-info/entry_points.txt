@@ -1,2 +1,0 @@
-[console_scripts]
-Codac = spark_filter.main:main
