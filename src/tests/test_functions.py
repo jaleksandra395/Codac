@@ -1,5 +1,5 @@
 import argparse
-from src.spark_filter.functions import get_args
+from src.spark_codac.functions import get_args
 
 
 def test_get_arguments_from_argparse(mocker):

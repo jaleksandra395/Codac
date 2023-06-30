@@ -1,5 +1,5 @@
-from src.spark_filter.df_class import DataFrameRepresent
-from src.spark_filter.functions import check_files, get_args, get_logger
+from src.spark_codac.df_class import DataFrameRepresent
+from src.spark_codac.functions import check_files, get_args, get_logger
 from pyspark.sql import SparkSession
 import yaml
 

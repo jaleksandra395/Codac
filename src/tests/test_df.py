@@ -2,7 +2,7 @@ import chispa
 from logging import Logger
 from pytest import fixture 
 from pyspark.sql import SparkSession, DataFrame
-from src.spark_filter.df_class import DataFrameRepresent
+from src.spark_codac.df_class import DataFrameRepresent
 
 
 @fixture
