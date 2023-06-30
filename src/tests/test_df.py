@@ -34,8 +34,8 @@ def expected_filter_column_not_in_df(spark_session: SparkSession) -> DataFrame:
     return df
 
 
-@fixture(name="expected_rename_no_column_in_df")
-def expected_rename_no_column_in_df(spark_session: SparkSession) -> DataFrame:
+@fixture(name="expected_rename_no_column_provided")
+def expected_rename_no_column_provided(spark_session: SparkSession) -> DataFrame:
     df_data = [('col1val1', 'col2val1', 'col3val1', 'col4val1', 'col5val1', 'col6val1'),
             ('col1val2', 'col2val2', 'col3val2', 'col4val2', 'col5val2', 'col6val2'),
             ('col1val3', 'col2val3', 'col3val3', 'col4val3', 'col5val3', 'col6val3'),
@@ -91,10 +91,10 @@ def test_filter_column_not_in_df(spark_session: SparkSession, spark_logger: Logg
 
 
 # TEST RENAME
-def test_rename_no_column_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_rename_no_column_in_df: DataFrame) -> None:
+def test_rename_no_column_provided(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_rename_no_column_provided: DataFrame) -> None:
     test_df = DataFrameCreator(None, spark_session, spark_logger, None, fixture_source_df)
     test_df.rename_column({}, spark_logger)
-    chispa.assert_df_equality(test_df.df, expected_rename_no_column_in_df, ignore_row_order=True)
+    chispa.assert_df_equality(test_df.df, expected_rename_no_column_provided, ignore_row_order=True)
 
 
 def test_rename_column_not_in_df(spark_session: SparkSession, spark_logger: Logger, fixture_source_df: DataFrame, expected_rename_column_not_in_df: DataFrame) -> None:

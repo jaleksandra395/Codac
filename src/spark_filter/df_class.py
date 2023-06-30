@@ -51,7 +51,7 @@ class DataFrameCreator:
             self.logger = logger
             logger.info(f"The dataset has been filtered by {column} SUCCESSFULLY.")
         else:
-            logger.info(f"{column} does not exist in DataFrame")
+            logger.warning(f"{column} does not exist in DataFrame")
         return self.df
 
 
