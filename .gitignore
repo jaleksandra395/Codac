@@ -1,5 +1,5 @@
 *py37-venv*
-Codac.egg-info
-log.1
-log.2
-log.3
+./src/Codac.egg-info
+/logs/log.1
+/logs/log.2
+/logs/log.3
