@@ -56,7 +56,4 @@ def check_files(file_one: str, file_two: str) -> bool:
     :return: True or false depending on if the files exist and it they csv format
     :rtype: boolean
     """
-    if os.path.exists(file_one) and os.path.exists(file_two):
-        return True
-    else:
-        return False
+    return os.path.exists(file_one) and os.path.exists(file_two)

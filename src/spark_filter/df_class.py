@@ -4,34 +4,45 @@ from pyspark.sql import DataFrame, SparkSession
 from typing import List, Dict
 
 
-class DataFrameCreator:
+class DataFrameRepresent:
     """The class represents a DataFrame
     """
-    def __init__(self, file_path: str, spark_session: SparkSession, logger: Logger,  file_format: str = "csv", df: DataFrame = None) -> None:
-        """The method reads a file and creates a DataFrame
+    def __init__(self, spark_session: SparkSession, logger: Logger) -> None:
+        """The method gets spark session and logger
 
-        :param file_path: A path which leads to a file
-        :type file_path: str
-        :param spark_session: A spark session object
+        :param spark_session: A SparkSession object
         :type spark_session: SparkSession
         :param logger: A logger object
         :type logger: Logger
-        :param file_format: Format of a file, default csv
-        :type file_format: str
-        :param df: A DataFrame to create a object, default None
-        :type df: DataFrame
         """
         self.logger = logger
-        if df:
-            self.df = df 
-            self.logger.info("Because any path has been provided a DataFrame object from the provided DataFrame has been created.")
-        else:
-            self.spark_session = spark_session
-            self.file_path = file_path
-            self.file_format = file_format
-            self.df = spark_session.read.format(file_format).option("header", True).load(file_path)
-            self.logger.info(f"The dataset from {self.file_path.split('/')[-1]} has been read SUCCESSFULLY.")
+        self.spark_session = spark_session
+    
+    def build_df_from_path(self, file_path: str) -> DataFrame:
+        """The method reads data from file path and creates DataFrame
 
+        :param: file_path: A path to a file containing data
+        :type: file_path: str
+        :return: A created DataFrame
+        :rtype: DataFrame
+        """
+        self.file_path = file_path
+        file_format = file_path.split('.')[-1]
+        self.df = self.spark_session.read.format(file_format).option("header", True).load(file_path)
+        self.logger.info(f"The dataset from {self.file_path.split('/')[-1]} has been read SUCCESSFULLY.")
+        return self.df
+    
+    def build_df_from_df(self, df: DataFrame) -> DataFrame:
+        """The method creates DataFrame from a DataFrame object
+
+        :param df: A DataFrame object
+        :type df: DataFrame
+        :return: A created DataFrame
+        :rtype: DataFrame
+        """
+        self.df = df 
+        self.logger.info("A DataFrame object from the provided DataFrame has been created.")
+        return self.df
 
     def filter_column(self, filter_values: List, column: str) -> DataFrame:
         """The method filters a column in DataFrame by a list of values
