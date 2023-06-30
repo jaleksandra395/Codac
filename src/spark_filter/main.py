@@ -18,15 +18,15 @@ def main():
     
     if check_files(args.file_one, args.file_two):
         clients_df = DataFrameCreator(args.file_one, spark_session, logger)
-        clients_df.filter_column(args.countries, logger, args.column_name)
-        clients_df.drop_columns(config["drop_names"], logger)
+        clients_df.filter_column(args.countries, args.column_name)
+        clients_df.drop_columns(config["drop_names"])
 
         cards_df = DataFrameCreator(args.file_two, spark_session, logger)
-        cards_df.drop_columns(config["drop_names"], logger)
+        cards_df.drop_columns(config["drop_names"])
 
-        clients_df.join_dfs(cards_df, config["join_on"], logger)
-        clients_df.rename_column(config["rename_names"], logger)
-        clients_df.save_to_file(config["output_path"], logger)
+        clients_df.join_dfs(cards_df, config["join_on"] )
+        clients_df.rename_column(config["rename_names"])
+        clients_df.save_to_file(config["output_path"])
     else:
         logger.critical("The files do not exist.")
     spark_session.stop()
