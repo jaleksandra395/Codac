@@ -1,3 +1,6 @@
+import os
+import sys
+sys.path.append(os.getcwd())
 from src.spark_codac.df_class import DataFrameRepresent
 from src.spark_codac.functions import check_files, get_args, get_logger
 from pyspark.sql import SparkSession
