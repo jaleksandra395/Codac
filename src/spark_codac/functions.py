@@ -53,7 +53,7 @@ def check_files(file_one: str, file_two: str) -> bool:
     :type file_one: str
     :param file_two: A path to the dataset_two file
     :type file_two: str
-    :return: True or false depending on if the files exist and it they csv format
+    :return: True or false depending on if the files exist
     :rtype: boolean
     """
     return os.path.exists(file_one) and os.path.exists(file_two)

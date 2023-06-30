@@ -17,6 +17,7 @@ class DataFrameRepresent:
         """
         self.logger = logger
         self.spark_session = spark_session
+
     
     def build_df_from_path(self, file_path: str) -> DataFrame:
         """The method reads data from file path and creates DataFrame
@@ -32,6 +33,7 @@ class DataFrameRepresent:
         self.logger.info(f"The dataset from {self.file_path.split('/')[-1]} has been read SUCCESSFULLY.")
         return self.df
     
+    
     def build_df_from_df(self, df: DataFrame) -> DataFrame:
         """The method creates DataFrame from a DataFrame object
 
@@ -43,6 +45,7 @@ class DataFrameRepresent:
         self.df = df 
         self.logger.info("A DataFrame object from the provided DataFrame has been created.")
         return self.df
+    
 
     def filter_column(self, filter_values: List, column: str) -> DataFrame:
         """The method filters a column in DataFrame by a list of values
