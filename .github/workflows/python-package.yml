@@ -5,9 +5,9 @@ name: Python package
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "developer" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "developer" ]
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
-        pip install -r requirements.txt; 
+        pip install -r requirements.txt
         
     - name: Lint with flake8
       run: |
@@ -39,7 +39,7 @@ jobs:
         export PYTHONPATH=$(echo `pwd`)
         pytest
         
-    - name: Build wheel file
+    - name: Create package
       run: |
         pip install build
         python3 -m build
