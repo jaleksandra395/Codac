@@ -2,7 +2,6 @@ import argparse
 import logging
 import logging.handlers as handlers
 import os
-from typing import Tuple
 
 
 def get_args() -> argparse.Namespace:
@@ -37,7 +36,7 @@ def get_logger(config) -> logging.Logger:
     logHandler.setLevel(logging.INFO)
     logHandler.setFormatter(formatter)
     logger.addHandler(logHandler)
-    
+
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
     console_handler.setFormatter(formatter)

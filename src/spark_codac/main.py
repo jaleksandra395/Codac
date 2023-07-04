@@ -8,18 +8,18 @@ import yaml
 
 
 def main():
-    """The main function of the application. 
+    """The main function of the application.
     """
     args = get_args()
 
     with open("config.yaml", "r") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
-    
+
     logger = get_logger(config)
-        
+
     spark_session = SparkSession.builder.appName("assignment").getOrCreate()
 
-    
+
     if check_files(args.file_one, args.file_two):
         clients_df = DataFrameRepresent(spark_session, logger)
         clients_df.build_df_from_path(args.file_one)
@@ -30,7 +30,7 @@ def main():
         cards_df.build_df_from_path(args.file_two)
         cards_df.drop_columns(config["drop_names"])
 
-        clients_df.join_dfs(cards_df, config["join_on"] )
+        clients_df.join_dfs(cards_df, config["join_on"])
         clients_df.rename_column(config["rename_names"])
         clients_df.save_to_file(config["output_path"])
     else:

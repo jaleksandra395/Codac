@@ -18,7 +18,7 @@ class DataFrameRepresent:
         self.logger = logger
         self.spark_session = spark_session
 
-    
+
     def build_df_from_path(self, file_path: str) -> DataFrame:
         """The method reads data from file path and creates DataFrame
 
@@ -32,8 +32,8 @@ class DataFrameRepresent:
         self.df = self.spark_session.read.format(file_format).option("header", True).load(file_path)
         self.logger.info(f"The dataset from {self.file_path.split('/')[-1]} has been read SUCCESSFULLY.")
         return self.df
-    
-    
+
+
     def build_df_from_df(self, df: DataFrame) -> DataFrame:
         """The method creates DataFrame from a DataFrame object
 
@@ -42,10 +42,10 @@ class DataFrameRepresent:
         :return: A created DataFrame
         :rtype: DataFrame
         """
-        self.df = df 
+        self.df = df
         self.logger.info("A DataFrame object from the provided DataFrame has been created.")
         return self.df
-    
+
 
     def filter_column(self, filter_values: List, column: str) -> DataFrame:
         """The method filters a column in DataFrame by a list of values
@@ -74,14 +74,14 @@ class DataFrameRepresent:
         :return: A DataFrame without unneccesary columns
         :rtype: DataFrame
         """
-        self.columns_to_drop = columns_to_drop 
+        self.columns_to_drop = columns_to_drop
         self.df = self.df.drop(*columns_to_drop)
-        self.logger.info("The unnecessary columns have been dropped SUCCESSFULLY.") 
+        self.logger.info("The unnecessary columns have been dropped SUCCESSFULLY.")
         return self.df
-    
-    
+
+
     def join_dfs(self, other, col: str) -> DataFrame:
-        """The method joins two DataFrames objects of the DataFrameCreator class 
+        """The method joins two DataFrames objects of the DataFrameCreator class
             based on the col parameter value.
 
         :param other: Other object of the DataFrameCreator class
@@ -95,10 +95,10 @@ class DataFrameRepresent:
         self.df = self.df.join(other.df, col, "inner")
         self.logger.info("The datasets have been joined SUCCESSFULLY.")
         return self.df
-    
+
 
     def rename_column(self, renames_dict: Dict) -> DataFrame:
-        """The method renames columns based on the renames_dict dictionary.  
+        """The method renames columns based on the renames_dict dictionary.
 
         :param renames_dict: A dictionary where keys are original column names and values are their substitutes
         :type renames_dict: Dict
@@ -109,13 +109,12 @@ class DataFrameRepresent:
             if col_to_rename not in self.df.columns:
                 renames_dict.pop(col_to_rename)
 
-        self.df = reduce(lambda df, idx: df.withColumnRenamed(list(renames_dict.keys())[idx], 
-                                                              list(renames_dict.values())[idx]), 
-                                                              range(len(renames_dict)), self.df)
+        self.df = reduce(lambda df, idx: df.withColumnRenamed(list(renames_dict.keys())[idx],
+                                                              list(renames_dict.values())[idx]), range(len(renames_dict)), self.df)
         self.logger.info("The columns have been renamed SUCCESSFULLY.")
         return self.df
-    
-    
+
+
     def save_to_file(self, output_path: str) -> DataFrame:
         """The method saves a DataFrame in specific path
 
