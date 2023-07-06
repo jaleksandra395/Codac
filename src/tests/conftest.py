@@ -5,10 +5,7 @@ from pytest import fixture
 
 @fixture(name="spark_session", scope="session")
 def spark_session_fixture() -> SparkSession:
-    """_summary_
-
-    :return: _description_
-    :rtype: SparkSession
+    """The function builds a SparkSession
     """
     spark_session = SparkSession.builder.appName("test_session").getOrCreate()
     yield spark_session
@@ -17,9 +14,9 @@ def spark_session_fixture() -> SparkSession:
 
 @fixture(name="spark_logger", scope="session")
 def logger_fixture() -> Logger:
-    """_summary_
+    """The funcion creates a logger
 
-    :return: _description_
+    :return: Logger
     :rtype: Logger
     """
     logger = getLogger()
