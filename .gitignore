@@ -1,6 +1,4 @@
 *py37-venv*
 *.pytest_cache*
 Codac.egg-info
-
-
-
+*build*

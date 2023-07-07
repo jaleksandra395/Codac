@@ -1,26 +1,15 @@
-2023-07-04 11:37:12 :  df_class.py INFO The dataset has been filtered by country SUCCESSFULLY. LINE 63.
-2023-07-04 11:37:12 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 79.
-2023-07-04 11:37:12 :  df_class.py INFO The dataset from dataset_two.csv has been read SUCCESSFULLY. LINE 33.
-2023-07-04 11:37:12 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 79.
-2023-07-04 11:37:12 :  df_class.py INFO The datasets have been joined SUCCESSFULLY. LINE 96.
-2023-07-04 11:37:12 :  df_class.py INFO The columns have been renamed SUCCESSFULLY. LINE 114.
-2023-07-04 11:37:15 :  df_class.py INFO The dataset has been saved SUCCESSFULLY. LINE 127.
-2023-07-04 11:37:16 :  main.py INFO The program has finished running. LINE 41.
-2023-07-06 09:24:03 :  df_class.py INFO The dataset from dataset_one.csv has been read SUCCESSFULLY. LINE 33.
-2023-07-06 09:24:03 :  df_class.py INFO The dataset has been filtered by country SUCCESSFULLY. LINE 63.
-2023-07-06 09:24:03 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 79.
-2023-07-06 09:24:04 :  df_class.py INFO The dataset from dataset_two.csv has been read SUCCESSFULLY. LINE 33.
-2023-07-06 09:24:04 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 79.
-2023-07-06 09:24:04 :  df_class.py INFO The datasets have been joined SUCCESSFULLY. LINE 96.
-2023-07-06 09:24:04 :  df_class.py INFO The columns have been renamed SUCCESSFULLY. LINE 114.
-2023-07-06 09:24:06 :  df_class.py INFO The dataset has been saved SUCCESSFULLY. LINE 127.
-2023-07-06 09:24:06 :  main.py INFO The program has finished running. LINE 41.
-2023-07-07 14:28:51 :  df_class.py INFO The dataset from dataset_one.csv has been read SUCCESSFULLY. LINE 33.
-2023-07-07 14:28:52 :  df_class.py INFO The dataset has been filtered by country SUCCESSFULLY. LINE 63.
-2023-07-07 14:28:52 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 79.
-2023-07-07 14:28:52 :  df_class.py INFO The dataset from dataset_two.csv has been read SUCCESSFULLY. LINE 33.
-2023-07-07 14:28:52 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 79.
-2023-07-07 14:28:52 :  df_class.py INFO The datasets have been joined SUCCESSFULLY. LINE 96.
-2023-07-07 14:28:52 :  df_class.py INFO The columns have been renamed SUCCESSFULLY. LINE 114.
-2023-07-07 14:28:56 :  df_class.py INFO The dataset has been saved SUCCESSFULLY. LINE 127.
-2023-07-07 14:28:57 :  main.py INFO The program has finished running. LINE 41.
+2023-07-07 14:34:09 :  df_class.py INFO The dataset from dataset_one.csv has been read SUCCESSFULLY. LINE 33.
+2023-07-07 14:34:09 :  df_class.py INFO The dataset has been filtered by country SUCCESSFULLY. LINE 63.
+2023-07-07 14:34:09 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 79.
+2023-07-07 14:34:10 :  df_class.py INFO The dataset from dataset_two.csv has been read SUCCESSFULLY. LINE 33.
+2023-07-07 14:34:10 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 79.
+2023-07-07 14:34:10 :  df_class.py INFO The datasets have been joined SUCCESSFULLY. LINE 96.
+2023-07-07 14:35:48 :  df_class.py INFO The dataset from dataset_one.csv has been read SUCCESSFULLY. LINE 33.
+2023-07-07 14:35:48 :  df_class.py INFO The dataset has been filtered by country SUCCESSFULLY. LINE 63.
+2023-07-07 14:35:48 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 79.
+2023-07-07 14:35:49 :  df_class.py INFO The dataset from dataset_two.csv has been read SUCCESSFULLY. LINE 33.
+2023-07-07 14:35:49 :  df_class.py INFO The unnecessary columns have been dropped SUCCESSFULLY. LINE 79.
+2023-07-07 14:35:49 :  df_class.py INFO The datasets have been joined SUCCESSFULLY. LINE 96.
+2023-07-07 14:35:49 :  df_class.py INFO The columns have been renamed SUCCESSFULLY. LINE 114.
+2023-07-07 14:35:54 :  df_class.py INFO The dataset has been saved SUCCESSFULLY. LINE 127.
+2023-07-07 14:35:54 :  main.py INFO The program has finished running. LINE 41.
