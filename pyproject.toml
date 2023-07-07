@@ -13,4 +13,4 @@ where = ["src"]
 exclude = ["tests"]
 
 [project.scripts]
-Codac = "spark_filter.main:main"
+Codac = "spark_codac.main:main"
