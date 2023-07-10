@@ -36,6 +36,7 @@ jobs:
         
     - name: Test with pytest
       run: |
+        export PYTHONPATH=$(echo `pwd`)
         pytest
         
     - name: Create package
